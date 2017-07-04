@@ -4,6 +4,11 @@ class Api::V1::StudentsController < ApplicationController
     render 'index.json.jbuilder'
   end
 
+  def show
+    @student = Student.find(params[:id])
+    render 'show.json.jbuilder'
+  end
+
   def create
     
     
