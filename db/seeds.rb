@@ -26,4 +26,46 @@
     photo_url: Faker::Internet.domain_name
     )
 
+end 
+
+40.times do
+ Capstone.create(
+    name: Faker::Name.first_name,
+    description: Faker::Lorem.sentence,
+    url: Faker::Internet.domain_name,
+    screenshot: Faker::Internet.domain_name,
+    student_id: rand(1...20)
+    )
 end
+
+40.times do
+ Education.create(
+    start_date: Faker::Date.backward(2000),
+    end_date: Faker::Date.backward(1000),
+    degree: Faker::Job.field,
+    university_name: Faker::Educator.university,
+    details: Faker::Lorem.sentence,
+    student_id: rand(1...20)
+    )
+end
+
+40.times do
+ Experience.create(
+    start_date: Faker::Date.backward(2000),
+    end_date: Faker::Date.backward(1000),
+    title: Faker::Job.title,
+    company: Faker::Company.name,
+    details: Faker::Lorem.sentence,
+    student_id: rand(1...20)
+    )
+end
+
+
+200.times do
+ Skill.create(
+    skill_name: Faker::Superhero.power,
+    student_id: rand(1...20)
+    )
+end
+
+
