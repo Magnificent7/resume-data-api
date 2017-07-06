@@ -5,29 +5,23 @@ class Api::V1::ExperiencesController < ApplicationController
   end
 
   def show
-    @experiences = Student.find(params[:id])
+    @experiences = Experience.find(params[:id])
     render 'show.json.jbuilder'
   end
 
   def create
-    @student = Student.new(
-      first_name: params[:first_name],
-      last_name: params[:last_name],
-      email: params[:email],
-      password: params[:password],
-      phone_number: params[:phone_number],
-      short_bio: params[:short_bio],
-      linkedin_url: params[:linkedin_url],
-      twitter_handle: params[:twitter_handle],
-      website_url: params[:website_url],
-      resume_url: params[:resume_url],
-      github_url: params[:github_url],
-      photo_url: params[:photo_url]
+    @experience = Experience.new(
+      start_date: params[:start_date],
+      end_date: params[:end_date],
+      title: params[:title],
+      company: params[:company],
+      details: params[:details],
+      student_id: params[:student_id]
     )
-    if @student.save
+    if @experience.save
       render 'show.json.jbuilder'
     else 
-      render json: {errors: @student.errors.full_messages}, status: 422
+      render json: {errors: @experience.errors.full_messages}, status: 422
     end
   end
 
@@ -35,28 +29,22 @@ class Api::V1::ExperiencesController < ApplicationController
   end
 
   def update
-    @student = Student.find(params[:id])
-      @student.update(
-        first_name: params[:first_name],
-        last_name: params[:last_name],
-        email: params[:email],
-        password: params[:password],
-        phone_number: params[:phone_number],
-        short_bio: params[:short_bio],
-        linkedin_url: params[:linkedin_url],
-        twitter_handle: params[:twitter_handle],
-        website_url: params[:website_url],
-        resume_url: params[:resume_url],
-        github_url: params[:github_url],
-        photo_url: params[:photo_url]
+    @experience = Experience.find(params[:id])
+      @experience.update(
+      start_date: params[:start_date],
+      end_date: params[:end_date],
+      title: params[:title],
+      company: params[:company],
+      details: params[:details],
+      student_id: params[:student_id]
     )
     render 'show.json.jbuilder'
 
   end
 
   def destroy
-    student = Student.find(params[:id])
-    student.destroy
+    experience = Experience.find(params[:id])
+    experience.destroy
     head :no_content, status: 204
   end
 end
