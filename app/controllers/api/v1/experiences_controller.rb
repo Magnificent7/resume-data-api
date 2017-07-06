@@ -5,7 +5,7 @@ class Api::V1::ExperiencesController < ApplicationController
   end
 
   def show
-    @experiences = Experience.find(params[:id])
+    @experience = Experience.find(params[:id])
     render 'show.json.jbuilder'
   end
 
