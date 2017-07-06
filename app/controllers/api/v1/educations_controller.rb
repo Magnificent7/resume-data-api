@@ -15,7 +15,8 @@ class Api::V1::EducationsController < ApplicationController
       end_date: params[:end_date],
       degree: params[:degree],
       university_name: params[:university_name],
-      details: params[:details] 
+      details: params[:details],
+      student_id: params[:student_id]
     )
     if @education.save
       render 'show.json.jbuilder'

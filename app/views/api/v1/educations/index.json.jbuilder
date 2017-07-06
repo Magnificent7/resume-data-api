@@ -5,4 +5,6 @@ json.array! @educations.each do |education|
   json.degree education.degree
   json.university_name education.university_name
   json.details education.details
+  json.student_id education.student_id
+
 end
