@@ -32,10 +32,13 @@ class Api::V1::StudentsController < ApplicationController
   end
 
   def update
+
     
   end
 
   def destroy
-    
+    student = Student.find(params[:id])
+    student.destroy
+    head :no_content, status: 204
   end
 end
