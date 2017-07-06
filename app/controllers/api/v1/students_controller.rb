@@ -48,7 +48,7 @@ class Api::V1::StudentsController < ApplicationController
         github_url: params[:github_url],
         photo_url: params[:photo_url]
     )
-    render 'show.json.jbuilder'
+    redirect_to "/api/v1/#{@student.id}"
 
   end
 

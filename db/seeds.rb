@@ -15,7 +15,7 @@
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.free_email("#{first_name}.#{last_name}"),
-    password_digest: "123456",
+    password: "123456",
     phone_number: Faker::PhoneNumber.cell_phone,
     short_bio: Faker::Lorem.sentence,
     linkedin_url: Faker::Internet.domain_name,
